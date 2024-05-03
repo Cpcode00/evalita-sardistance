@@ -9,7 +9,7 @@ class User_Info(object):
                users are encoded as objects.
             """
             self.users = {}
-            csvfile = open("data/USER.csv")
+            csvfile = open("/content/evalita-sardistance/data/USER.csv")
             next(csvfile)  # skip header
             spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
             for user in spamreader:

@@ -8,7 +8,7 @@ class Tweet_Info(object):
                users are encoded as objects.
             """
             self.tweets = {}
-            csvfile = open("data/TWEET.csv")
+            csvfile = open("/content/evalita-sardistance/data/TWEET.csv")
             next(csvfile)  # skip header
             spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
             for tweet in spamreader:
