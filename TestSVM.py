@@ -42,8 +42,8 @@ test_predict = clf.predict(X_test)
 
 
 
-csvfile = open('machinelearning/results/TEST_PREDICTION.csv', 'w', newline='')
-spamwriter = csv.writer(csvfile, delimiter=',',quotechar='"', quoting=csv.QUOTE_MINIMAL)
+csvfile = open('machinelearning/results/TEST_PREDICTION.tsv', 'w', newline='')
+spamwriter = csv.writer(csvfile, delimiter='\t',quotechar='"', quoting=csv.QUOTE_MINIMAL)
 spamwriter.writerow(['tweet_id', 'label'])
 for i in range(0,len(tweets_test)):
     spamwriter.writerow([tweets_test[i].id, test_predict[i]])
