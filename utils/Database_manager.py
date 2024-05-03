@@ -16,7 +16,7 @@ class Database_manager(object):
            Tweets are encoded as Tweet objects.
         """
         tweets=[]
-        csvfile= open("data/TRAIN.csv")
+        csvfile= open("/content/evalita-sardistance/data/TRAIN.csv")
         next(csvfile)#skip header
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
 
@@ -39,7 +39,7 @@ class Database_manager(object):
            Tweets are encoded as Tweet objects.
         """
         tweets=[]
-        csvfile= open("data/TEST.csv")
+        csvfile= open("/content/evalita-sardistance/data/TEST.csv")
         next(csvfile)#skip header
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
         for tweet in spamreader:
@@ -60,7 +60,7 @@ class Database_manager(object):
            Tweets are encoded as Tweet objects.
         """
         tweets=[]
-        csvfile= open("data/TEST_labeled.csv")
+        csvfile= open("/content/evalita-sardistance/data/TEST_labeled.csv")
         next(csvfile)#skip header
         spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
         for tweet in spamreader:

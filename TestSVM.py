@@ -22,7 +22,6 @@ labels_test=numpy.array(database_manager.get_label(tweets_test))
 
 feature_type=[
             "unigram",
-            "userinfobio",
             ]
 
 #feature_type=feature_manager.get_availablefeaturetypes()
@@ -37,12 +36,16 @@ print("feature space dimension X_test:", X_test.shape)
 
 clf = SVC(kernel="linear")
 
+print(len(X))
+print(len(labels_training))
+print(len(X_test))
+
 clf.fit(X,labels_training)
 test_predict = clf.predict(X_test)
 
 
 
-csvfile = open('machinelearning/results/TEST_PREDICTION.tsv', 'w', newline='')
+csvfile = open('/content/evalita-sardistance/machinelearning/results/TEST_PREDICTION.tsv', 'w', newline='')
 spamwriter = csv.writer(csvfile, delimiter='\t',quotechar='"', quoting=csv.QUOTE_MINIMAL)
 spamwriter.writerow(['tweet_id', 'label'])
 for i in range(0,len(tweets_test)):

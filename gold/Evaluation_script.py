@@ -3,7 +3,7 @@ from sklearn.metrics import  precision_recall_fscore_support
 
 
 y_true= {}
-csvfile=open('TEST-GOLD.csv')
+csvfile=open('/content/evalita-sardistance/gold/TEST-GOLD.csv')
 spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
 for row in spamreader:
     if row[1] in ['AGAINST','FAVOR','NONE']:
@@ -11,7 +11,7 @@ for row in spamreader:
 print("TEST-GOLD: ",len(y_true))
 
 y_pred={}
-csvfile=open('TEST_PREDICTION-baseline-SVC.tsv')
+csvfile=open('/content/evalita-sardistance/machinelearning/results/TEST_PREDICTION.tsv')
 spamreader = csv.reader(csvfile, delimiter='\t', quotechar='"')
 for row in spamreader:
     if row[1] in ['AGAINST','FAVOR','NONE']:
