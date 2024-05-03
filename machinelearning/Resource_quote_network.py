@@ -18,11 +18,11 @@ class Quote_Network(object):
     G=None
     def __init__(self):
 
-        if os.path.isfile('machinelearning/network/QUOTE.pickle'):
-            self.G = pickle.load(open('machinelearning/network/QUOTE.pickle', 'rb'))
+        if os.path.isfile('/content/evalita-sardistance/machinelearning/network/QUOTE.pickle'):
+            self.G = pickle.load(open('/content/evalita-sardistance/machinelearning/network/QUOTE.pickle', 'rb'))
         else:
             self.G=nx.Graph()
-            csvfile = open("data/QUOTE.csv")
+            csvfile = open("/content/evalita-sardistance/data/QUOTE.csv")
             next(csvfile)  # skip header
             spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
             for relation in spamreader:
@@ -31,7 +31,7 @@ class Quote_Network(object):
             print(self.G.size())
             communities=greedy_modularity_communities(self.G, weight='weight')
             set_node_community(self.G,communities)
-            pickle.dump(self.G,open('machinelearning/network/QUOTE.pickle', 'wb'))
+            pickle.dump(self.G,open('/content/evalita-sardistance/machinelearning/network/QUOTE.pickle', 'wb'))
 
 
     def get_network_community(self,user_id):

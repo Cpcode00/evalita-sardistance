@@ -158,7 +158,12 @@ class Features_manager(object):
                 else:
                     combined_X=X
                     combined_X_test=X_test
-
+            ''''
+            print("1: ", combined_X)
+            print("2: ", combined_X_test)
+            print("3: ", combined_feature_names)
+            print("4: ", combined_feature_index)
+            '''
             return combined_X, combined_X_test, combined_feature_names, np.array(combined_feature_index)
 
 
@@ -214,7 +219,7 @@ class Features_manager(object):
             X_train = countVectorizer.transform(feature)
             X_test = countVectorizer.transform(feature_test)
 
-            feature_names=countVectorizer.get_feature_names()
+            feature_names=countVectorizer.get_feature_names_out()
 
             return X_train, X_test, feature_names
 
@@ -745,7 +750,7 @@ class Features_manager(object):
             X_train = countVectorizer.transform(feature)
             X_test = countVectorizer.transform(feature_test)
 
-            feature_names = countVectorizer.get_feature_names()
+            feature_names = countVectorizer.get_feature_names_out()
             return X_train, X_test, feature_names
 
 

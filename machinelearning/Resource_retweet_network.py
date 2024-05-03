@@ -18,11 +18,11 @@ class Retweet_Network(object):
     G=None
     def __init__(self):
 
-        if os.path.isfile('machinelearning/network/RETWEET.pickle'):
-            self.G = pickle.load(open('machinelearning/network/RETWEET.pickle', 'rb'))
+        if os.path.isfile('/content/evalita-sardistance/machinelearning/network/RETWEET.pickle'):
+            self.G = pickle.load(open('/content/evalita-sardistance/machinelearning/network/RETWEET.pickle', 'rb'))
         else:
             self.G=nx.Graph()
-            csvfile = open("../data/RETWEET.csv")
+            csvfile = open("/content/evalita-sardistance/data/RETWEET.csv")
             next(csvfile)  # skip header
             spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
             for relation in spamreader:
@@ -31,7 +31,7 @@ class Retweet_Network(object):
             print(self.G.size())
             communities=greedy_modularity_communities(self.G, weight='weight')
             set_node_community(self.G,communities)
-            pickle.dump(self.G,open('machinelearning/network/RETWEET.pickle', 'wb'))
+            pickle.dump(self.G,open('/content/evalita-sardistance/machinelearning/network/RETWEET.pickle', 'wb'))
 
 
     def get_network_community(self,user_id):

@@ -18,11 +18,11 @@ class Reply_Network(object):
     G=None
     def __init__(self):
 
-        if os.path.isfile('machinelearning/network/REPLY.pickle'):
-            self.G = pickle.load(open('machinelearning/network/REPLY.pickle', 'rb'))
+        if os.path.isfile('/content/evalita-sardistance/machinelearning/network/REPLY.pickle'):
+            self.G = pickle.load(open('/content/evalita-sardistance/machinelearning/network/REPLY.pickle', 'rb'))
         else:
             self.G=nx.Graph()
-            csvfile = open("../data/REPLY.csv")
+            csvfile = open("/content/evalita-sardistance/data/REPLY.csv")
             next(csvfile)  # skip header
             spamreader = csv.reader(csvfile, delimiter=',', quotechar='"')
             for relation in spamreader:
@@ -31,7 +31,7 @@ class Reply_Network(object):
             print(self.G.size())
             communities=greedy_modularity_communities(self.G, weight='weight')
             set_node_community(self.G,communities)
-            pickle.dump(self.G,open('machinelearning/network/REPLY.pickle', 'wb'))
+            pickle.dump(self.G,open('/content/evalita-sardistance/machinelearning/network/REPLY.pickle', 'wb'))
 
 
     def get_network_community(self,user_id):
